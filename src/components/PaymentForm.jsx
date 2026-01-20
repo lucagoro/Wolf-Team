@@ -17,7 +17,7 @@ export default function PaymentForm({ onSubmit, onCancel }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="form" onSubmit={handleSubmit}>
       <input
         type="number"
         placeholder="Monto"

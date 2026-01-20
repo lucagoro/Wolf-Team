@@ -7,7 +7,7 @@
 
 /* Card del alumno */
 .student-card-detail {
-  background: #1b1f27;
+  background: linear-gradient(180deg, #0f0f14, #15151f);
   border-radius: 12px;
   padding: 16px;
   margin: 20px;
@@ -62,10 +62,10 @@
 }
 
 .payment-item {
-  background: #1e232d;
+  background: linear-gradient(180deg, #0f0f14, #15151f);
   border-radius: 10px;
   padding: 12px;
-  margin-bottom: 10px;
+  margin: 12px 20px;
   font-size: 14px;
 }
 

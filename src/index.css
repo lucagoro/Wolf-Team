@@ -35,7 +35,7 @@ h1, h2, h3 {
 input, select {
   width: 100%;
   padding: 12px;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
   border-radius: 10px;
   border: none;
   background: #1f1f2e;

@@ -2,7 +2,7 @@
   background: #1b1b28;
   border-radius: 14px;
   padding: 14px;
-  margin-bottom: 12px;
+  margin: 16px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -27,6 +27,7 @@
 /* estados */
 .status-AL_DIA {
   color: #4caf50;
+  width: 80px;
 }
 
 .status-VENCIDO {

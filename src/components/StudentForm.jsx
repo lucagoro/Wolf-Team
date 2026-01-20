@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "../css/StudentForm.css";
 
 export default function StudentForm({initialData, onSubmit, onCancel}) {
     const [form, setForm] = useState({
@@ -27,7 +28,7 @@ export default function StudentForm({initialData, onSubmit, onCancel}) {
    }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="form" onSubmit={handleSubmit}>
       <input
         name="surname"
         placeholder="Apellido"

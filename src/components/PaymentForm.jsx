@@ -8,8 +8,8 @@ export default function PaymentForm({ onSubmit, onCancel }) {
   
 
   function handleSubmit(e) {
-    e.preventDefault(); // Evita recargar la página
-    onSubmit({          // Envía los datos del formulario al componente padre y el componente padre se encarga de llamar a la API
+    e.preventDefault();
+    onSubmit({          
       amount: Number(amount),
       paymentDate: paymentDate,
       period
@@ -17,13 +17,14 @@ export default function PaymentForm({ onSubmit, onCancel }) {
   }
 
   return (
-    <form className="form" onSubmit={handleSubmit}>
+    <form className="m-5" onSubmit={handleSubmit}>
       <input
         type="number"
         placeholder="Monto"
         value={amount}
         onChange={e => setAmount(e.target.value)}
         required
+        className="w-full p-3 mb-4 rounded-lg border-none bg-[#1f1f2e] text-white text-base placeholder-[#aaa]"
       />
 
       <input
@@ -32,6 +33,7 @@ export default function PaymentForm({ onSubmit, onCancel }) {
         value={period}
         onChange={e => setPeriod(e.target.value)}
         required
+        className="w-full p-3 mb-4 rounded-lg border-none bg-[#1f1f2e] text-white text-base placeholder-[#aaa]"
       />
 
       <input
@@ -40,11 +42,23 @@ export default function PaymentForm({ onSubmit, onCancel }) {
         value={paymentDate}
         onChange={e => setPaymentDate(e.target.value)}
         required
+        className="w-full p-3 mb-4 rounded-lg border-none bg-[#1f1f2e] text-white text-base placeholder-[#aaa]"
       />
 
-      <div className="btns-form">
-        <button className="btn-save" type="submit">Guardar</button>
-        <button className="btn-cancel" type="button" onClick={onCancel}>Cancelar</button>
+      <div className="flex justify-between mt-4">
+        <button 
+            className="bg-[#00913F] text-white border-none py-2.5 rounded-lg w-[45%] cursor-pointer hover:bg-[#007a33]" 
+            type="submit"
+        >
+            Guardar
+        </button>
+        <button 
+            className="bg-[#2c2c3a] text-white border-none py-2.5 rounded-lg w-[45%] cursor-pointer hover:bg-[#444454]" 
+            type="button" 
+            onClick={onCancel}
+        >
+            Cancelar
+        </button>
       </div>
     </form>
   );

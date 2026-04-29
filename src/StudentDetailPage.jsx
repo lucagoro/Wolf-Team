@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { deleteStudent } from "./api/students";
 import ConfirmModal from "./components/ConfirmModal";
 import Toast from "./components/Toast";
+import { useAuth } from "./context/AuthContext";
 
 // Iconos SVG
 const BackIcon = () => (
@@ -56,12 +57,24 @@ export default function StudentDetailPage() {
     const [toast, setToast] = useState(null);
     const navigate = useNavigate();
     const hasPayments = payments.length > 0;
+    const { user } = useAuth();
+    const userRole = user?.role || 'GUEST';
 
     const statusClasses = {
         "AL_DIA": "bg-green-500/20 text-green-400 border border-green-500/30",
         "VENCIDO": "bg-red-500/20 text-red-400 border border-red-500/30",
         "SIN_PAGOS": "bg-gray-500/20 text-gray-400 border border-gray-500/30"
     };
+
+    //  Función de enmascarado
+const formatPhone = (phone, role) => {
+    if (!phone) return "No disponible";
+    if (role === 'GUEST') {
+        // Muestra los primeros 4 dígitos y oculta el resto
+        return `${phone.substring(0, 4)}XXXX-XXXX`;
+    }
+    return phone;
+};
 
     function handleCreatePayment(data) {
     createPaymentForStudent(id, data).then(() => {
@@ -145,7 +158,9 @@ export default function StudentDetailPage() {
                         </div>
                         <div className="flex-1">
                             <h1 className="text-xl font-bold text-white m-0">{student.surname} {student.name}</h1>
-                            <p className="text-gray-400 text-sm mt-1">{student.phone}</p>
+                            <p className="text-gray-400 text-sm mt-1">
+                                {formatPhone(student.phone, userRole)}
+                            </p>
                         </div>
                     </div>
                     

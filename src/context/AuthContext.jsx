@@ -18,6 +18,10 @@ export const AuthProvider = ({ children }) => {
 
   const loginUser = (userData) => {
     setUser(userData);
+    localStorage.setItem('token', userData.token);
+    localStorage.setItem('role', userData.role); // Para el enmascarado directo
+    // Guardamos el objeto completo o solo el rol para que persista al recargar
+    localStorage.setItem('user', JSON.stringify(userData));
   };
 
   const logoutUser = () => {

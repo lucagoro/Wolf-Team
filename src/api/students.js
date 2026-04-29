@@ -64,6 +64,8 @@ export async function deleteStudent(id) {
     method: "DELETE",
     headers: getAuthHeaders()
   });
+  if (!res.ok) throw new Error("Error al eliminar alumno");
+  return res.json();
 }
 
 /**

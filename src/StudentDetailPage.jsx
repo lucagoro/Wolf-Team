@@ -129,20 +129,26 @@ const formatPhone = (phone, role) => {
 
                         {showMenu && (
                             <div className="absolute right-0 top-12 w-40 bg-[#1f1f2e] rounded-xl shadow-xl border border-[#2a2a3d] overflow-hidden z-50">
-                                <button 
-                                    className="flex items-center gap-2 w-full px-4 py-3 text-sm text-white hover:bg-[#2a2a3d] border-none bg-none cursor-pointer transition-colors"
-                                    onClick={() => {setShowMenu(false); navigate(`/students/${id}/edit`)}}
-                                >
-                                    <EditIcon />
-                                    Editar
-                                </button>
-                                <button 
-                                    className="flex items-center gap-2 w-full px-4 py-3 text-sm text-red-400 hover:bg-[#2a2a3d] border-none bg-none cursor-pointer transition-colors"
-                                    onClick={() => {setShowDelete(true); setShowMenu(false);}}
-                                >
-                                    <DeleteIcon />
-                                    Eliminar
-                                </button>
+                                {userRole === 'ADMIN' ? (
+                                <>
+                                    <button 
+                                        className="flex items-center gap-2 w-full px-4 py-3 text-sm text-white hover:bg-[#2a2a3d] border-none bg-none cursor-pointer transition-colors"
+                                        onClick={() => {setShowMenu(false); navigate(`/students/${id}/edit`)}}
+                                    >
+                                        <EditIcon />
+                                        Editar
+                                    </button>
+                                    <button 
+                                        className="flex items-center gap-2 w-full px-4 py-3 text-sm text-red-400 hover:bg-[#2a2a3d] border-none bg-none cursor-pointer transition-colors"
+                                        onClick={() => {setShowDelete(true); setShowMenu(false);}}
+                                    >
+                                        <DeleteIcon />
+                                        Eliminar
+                                    </button>
+                                </>
+                                ) : (
+                                    <p className="px-4 py-3 text-xs text-gray-500 italic">Opciones deshabilitadas (GUEST)</p>
+                                )}
                             </div>
                         )}
                     </div>

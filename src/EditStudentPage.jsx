@@ -24,11 +24,11 @@ export default function EditStudentPage() {
     });
   }
 
-  if (!student) return <p>Cargando alumno...</p>;
+  if (!student) return <p className="text-white p-5">Cargando alumno...</p>;
 
   return (
-    <div>
-      <h2>Editar alumno</h2>
+    <div className="bg-gradient-to-b from-[#0f0f14] to-[#15151f] min-h-screen">
+      <h2 className="text-[#f5f5fa] p-5 mb-0">Editar alumno</h2>
 
       <StudentForm
         initialData={student}

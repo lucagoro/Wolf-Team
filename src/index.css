@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 * {
   box-sizing: border-box;
 }
@@ -11,24 +13,23 @@ body {
   min-height: 100vh;
 }
 
+/* Safe area para dispositivos móviles */
+.safe-area-pb {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  padding-bottom: constant(safe-area-inset-bottom, 0px);
+}
+
+/* Support for iOS notch */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .safe-area-pb {
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+  }
+}
+
 /* títulos */
 h1, h2, h3 {
   margin: 0.5rem 0;
   color: #f5f5fa;
-}
-
-/* botones */
-.btn {
-  background: linear-gradient(135deg, #5b5fff, #7a5cff);
-  color: white;
-  border: none;
-  border-radius: 10px;
-  padding: 50px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  margin: 10px;
-  width: 70px;
 }
 
 /* inputs */
@@ -45,11 +46,4 @@ input, select {
 
 input::placeholder {
   color: #aaa;
-}
-
-/* layout general */
-.container {
-  max-width: 600px;
-  margin: auto;
-  padding: 16px;
 }
